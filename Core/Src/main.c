@@ -121,6 +121,7 @@ int main(void)
     HAL_Delay(2000);
     lcd_clear();
 
+    inicializarLCD();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -205,13 +206,13 @@ void mostrarMensaje(const char *linea1, const char *linea2) {
 // Implementación de la función para el caso 1
 void caso1(void) {
     // Muestra el mensaje específico en la LCD
-    mostrarMensaje("Tipo de Ropa", "");
+    mostrarMensaje("High", "");
 
     // Inicializa el contador de segundos
     int contador = 1;
 
     // Mientras el contador sea menor o igual a 60
-    while (contador <= 60) {
+    while (contador <= 10) {
         // Actualiza la segunda línea de la LCD con el valor del contador
         char mensaje[16];
         sprintf(mensaje, "Segundos: %02d", contador);
@@ -232,10 +233,31 @@ void caso1(void) {
 // Implementación de la función para el caso 2
 void caso2(void) {
     // Muestra el mensaje específico en la LCD
-    mostrarMensaje("Otro Mensaje", "");
+    mostrarMensaje("Medium", "");
+
+
+    // Inicializa el contador de segundos
+       int contador = 1;
+
+       // Mientras el contador sea menor o igual a 60
+       while (contador <= 15) {
+           // Actualiza la segunda línea de la LCD con el valor del contador
+           char mensaje[16];
+           sprintf(mensaje, "Segundos: %02d", contador);
+           lcd_put_cur(1, 0);
+           lcd_send_string(mensaje);
+
+           // Espera un segundo (ajusta según la unidad de tiempo que estés utilizando)
+           HAL_Delay(1000);
+
+           // Incrementa el contador
+           contador++;
+       }
+
+
 
     // Espera durante un minuto (ajusta según la unidad de tiempo que estés utilizando)
-    HAL_Delay(60000);
+   // HAL_Delay(60000);
 
     // Vuelve a la pantalla inicial después de un minuto
     inicializarLCD();
@@ -244,10 +266,31 @@ void caso2(void) {
 // Implementación de la función para el caso 3
 void caso3(void) {
     // Muestra el mensaje específico en la LCD
-    mostrarMensaje("Mensaje para", "el Caso 3");
+    mostrarMensaje("Low", "");
+
+
+    // Inicializa el contador de segundos
+       int contador = 1;
+
+       // Mientras el contador sea menor o igual a 60
+       while (contador <= 20) {
+           // Actualiza la segunda línea de la LCD con el valor del contador
+           char mensaje[16];
+           sprintf(mensaje, "Segundos: %02d", contador);
+           lcd_put_cur(1, 0);
+           lcd_send_string(mensaje);
+
+           // Espera un segundo (ajusta según la unidad de tiempo que estés utilizando)
+           HAL_Delay(1000);
+
+           // Incrementa el contador
+           contador++;
+       }
+
+
 
     // Espera durante un minuto (ajusta según la unidad de tiempo que estés utilizando)
-    HAL_Delay(60000);
+   // HAL_Delay(60000);
 
     // Vuelve a la pantalla inicial después de un minuto
     inicializarLCD();
